@@ -1,0 +1,33 @@
+<%= form_for(@team, html:form_record_for(:team)) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" >
+    <%= f.label :name %><br>
+    <%= f.text_field :name, attribute_for(:name) %>
+  </div>
+  <div class="field"%>
+    <%= f.label :competition %><br>
+    <%= f.text_field :competition, attribute_for(:competition)%>
+  </div>
+  <div class="field">
+    <%= f.label :point %><br>
+    <%= f.number_field :point, attribute_for(:point) %>
+  </div>
+  <div class="field">
+    <%= f.label :ranking %><br>
+    <%= f.number_field :ranking, attribute_for(:ranking)%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", action_for(:save)%>
+  </div>
+<% end %>
