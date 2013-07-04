@@ -43,9 +43,9 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 group :development, :test do
-	gem 'page_record'
+	gem 'page_record', :path => '../page_record'
 	gem 'rspec-rails'
 	gem 'database_cleaner'
 end

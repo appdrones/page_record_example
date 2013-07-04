@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<%= atf(:p, :name) do %>
   <strong>Name:</strong>
   <%= @team.name %>
-</p>
+<% end %>
 
-<p>
+<%= atf(:p, :competition) do %>
   <strong>Competition:</strong>
   <%= @team.competition %>
-</p>
+<% end %>
 
-<p>
+<%= atf(:p, :point) do %>
   <strong>Point:</strong>
   <%= @team.point %>
-</p>
+<% end %>
 
-<p>
+<%= atf(:p, :ranking) do %>
   <strong>Ranking:</strong>
   <%= @team.ranking %>
-</p>
+<% end %>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Edit', edit_team_path(@team), action_for(:edit) %> |
+<%= link_to 'Back', teams_path, action_for(:back) %>
