@@ -27,6 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem 'simple_form'
+gem 'formtastic'
+gem 'page_record'#, :path => '../page_record'
+gem 'pry'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -45,7 +48,6 @@ end
 # Use debugger
 gem 'debugger', group: [:development, :test]
 group :development, :test do
-	gem 'page_record', :path => '../page_record'
 	gem 'rspec-rails'
 	gem 'database_cleaner'
 end
