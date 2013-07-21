@@ -24,11 +24,21 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+group :development, :test do
+	gem 'factory_girl'
+  gem 'byebug'
+  gem 'debugger'
+  gem 'pry'
+	gem 'rspec-rails'
+	gem 'database_cleaner'
+end
+
+
 gem 'jbuilder', '~> 1.2'
 gem 'simple_form'
 gem 'formtastic'
-gem 'page_record'#, :path => '../page_record'
+gem 'page_record', :path => '..'
+gem 'rubocop'
 gem 'pry'
 
 group :doc do
@@ -45,13 +55,10 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
-group :development, :test do
-	gem 'rspec-rails'
-	gem 'database_cleaner'
-end
 
 group :test do
+	gem 'capybara'
+	gem 'capybara-webkit'
 	gem 'cucumber-rails'
+	gem 'selenium-webdriver'
 end
