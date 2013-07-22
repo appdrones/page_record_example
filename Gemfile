@@ -33,7 +33,7 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'rubocop'
 	gem 'capybara'
-	gem 'cucumber-rails', github: 'cucumber/cucumber-rails', branch: 'master_rails4_test'
+	gem 'cucumber-rails', github: 'cucumber/cucumber-rails', branch: 'master_rails4_test', require: false
 end
 
 gem 'simple_form'
