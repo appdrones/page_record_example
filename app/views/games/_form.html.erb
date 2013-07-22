@@ -1,0 +1,21 @@
+<%= semantic_form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.inputs do %>
+    	<%= f.input :home_team %>
+    	<%= f.input :visiting_team %>
+    	<%= f.input :game_date, as: :date_picker %>
+    	<%= f.input :goals_home_team %>
+    	<%= f.input :goals_visiting_team %>
+    <% end %>
+    <%= f.actions %>
+<% end %>

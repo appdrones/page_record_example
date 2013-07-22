@@ -26,39 +26,22 @@ gem 'turbolinks'
 
 group :development, :test do
 	gem 'factory_girl'
-  gem 'byebug'
-  gem 'debugger'
-  gem 'pry'
+	gem 'byebug'
+	gem 'debugger'
+	gem 'pry'
 	gem 'rspec-rails'
 	gem 'database_cleaner'
+	gem 'rubocop'
+	gem 'capybara'
+	gem 'cucumber-rails', github: 'cucumber/cucumber-rails', branch: 'master_rails4_test', require: false
+	gem 'selenium-webdriver'
 end
 
-
-gem 'jbuilder', '~> 1.2'
 gem 'simple_form'
-gem 'formtastic'
+gem 'formtastic', '~> 2.3.0.rc2'
 gem 'page_record', :path => '..'
-gem 'rubocop'
-gem 'pry'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-
-group :test do
-	gem 'capybara'
-	gem 'capybara-webkit'
-	gem 'cucumber-rails'
-	gem 'selenium-webdriver'
 end

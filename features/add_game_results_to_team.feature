@@ -7,7 +7,6 @@ Background:
 	Given a home team in the competition
 	And a visiting team in the competition
 
-
 Scenario: Add a win for the home team
 	When the home team wins
 	Then I should see 3 points added to the home team score

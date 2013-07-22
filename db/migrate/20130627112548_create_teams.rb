@@ -3,7 +3,7 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
       t.string :name
       t.string :competition
-      t.integer :point
+      t.integer :points, default: 0
       t.integer :ranking
 
       t.timestamps

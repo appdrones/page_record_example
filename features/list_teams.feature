@@ -4,8 +4,8 @@ Feature: List teams
   I want list all teams based on rankings
 
   Scenario: List all teams in order of standing
-    Given a competition with more then 6 teams
-    When I list the competition
+		Given a competition with more then 6 teams
+		When I list the competition
 		Then I should see 6 teams in the order of the number of points
 
 

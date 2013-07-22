@@ -11,12 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130627112548) do
+ActiveRecord::Schema.define(version: 20130722150342) do
+
+  create_table "games", force: true do |t|
+    t.integer  "visiting_team_id"
+    t.integer  "home_team_id"
+    t.date     "game_date"
+    t.integer  "goals_home_team"
+    t.integer  "goals_visiting_team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["home_team_id"], name: "index_games_on_home_team_id"
+  add_index "games", ["visiting_team_id"], name: "index_games_on_visiting_team_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "competition"
-    t.integer  "point"
+    t.integer  "points",      default: 0
     t.integer  "ranking"
     t.datetime "created_at"
     t.datetime "updated_at"

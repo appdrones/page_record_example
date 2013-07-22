@@ -5,11 +5,10 @@
 # files.
 
 require 'cucumber/rails'
-require 'capybara-webkit'
 require 'page_record/cucumber'
 
 World(FactoryGirl::Syntax::Methods)
-Dir["#{Rails.root}/specs/factories/*.rb"].each {|f|require f}
+FactoryGirl.find_definitions
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
