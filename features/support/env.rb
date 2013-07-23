@@ -18,7 +18,7 @@ Capybara.default_selector = :css
 # Capybara.default_driver = :webkit
 # Capybara.javascript_driver = :poltergeist
 # Capybara.default_driver = :poltergeist_debug
-Capybara.default_driver = :selenium
+# Capybara.default_driver = :selenium
 
 
 # By default, any exception happening in your Rails application will bubble up

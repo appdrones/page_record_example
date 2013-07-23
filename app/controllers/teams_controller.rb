@@ -4,7 +4,8 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    Team.update_ranking
+    @teams = Team.all.order('points desc')
   end
 
   # GET /teams/1

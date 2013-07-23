@@ -5,6 +5,8 @@ Feature: List teams
 
   Scenario: List all teams in order of standing
 		Given a competition with more then 6 teams
+		And two teams with two wins
+		And two teams with one win
 		When I list the competition
 		Then I should see 6 teams in the order of the number of points
 
