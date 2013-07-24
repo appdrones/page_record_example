@@ -2,6 +2,8 @@ class Team < ActiveRecord::Base
 	has_many :home_games, class_name: 'Game', foreign_key: 'home_team_id'
 	has_many :out_games, class_name: 'Game', foreign_key: 'visiting_team_id'
 
+	validates_presence_of :name
+	validates_presence_of :competition
 
   def self.update_ranking
     teams = Team.order('points desc')

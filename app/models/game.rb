@@ -3,6 +3,10 @@ class Game < ActiveRecord::Base
   belongs_to :home_team, class_name: Team
   after_save :update_points_and_ranking
 
+  validates_presence_of :visiting_team
+  validates_presence_of :home_team
+  validates_presence_of :goals_home_team
+  validates_presence_of :goals_visiting_team
 
   private
 
