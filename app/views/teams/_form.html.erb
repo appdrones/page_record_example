@@ -4,8 +4,10 @@
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
 
       <ul>
-      <% @team.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @team.errors.each do |attribute, msg| %>
+        <%= content_tag(:li, error_for(attribute)) do %>
+          <%= msg%>
+        <% end %>
       <% end %>
       </ul>
     </div>

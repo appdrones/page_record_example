@@ -10,10 +10,14 @@ When(/^I add a team$/) do
 	team.save
 end
 
-Then(/^the team should be in the competition list$/) do
+Then(/^the team should( not)? be in the competition list$/) do |negate|
 	visit teams_path
 	all_teams = TeamPage.all.collect { |team| team.name}
-	expect(all_teams).to include('Ajax')
+	if negate
+		expect(all_teams).not_to include('Ajax')
+	else
+		expect(all_teams).to include('Ajax')
+	end
 end
 
 Given(/^a competition with more then (\d+) teams$/) do |number_of_teams|
@@ -84,16 +88,16 @@ end
 
 Given(/^two teams with two wins$/) do
 	teams = Team.all
+	create :home_win, home_team: teams[0], visiting_team:teams[2]
 	create :home_win, home_team: teams[0], visiting_team:teams[3]
-	create :home_win, home_team: teams[0], visiting_team:teams[4]
+	create :home_win, home_team: teams[1], visiting_team:teams[2]
 	create :home_win, home_team: teams[1], visiting_team:teams[3]
-	create :home_win, home_team: teams[1], visiting_team:teams[4]
 end
 
 Given(/^two teams with one win$/) do
 	teams = Team.all
+	create :home_win, home_team: teams[2], visiting_team:teams[4]
 	create :home_win, home_team: teams[3], visiting_team:teams[5]
-	create :home_win, home_team: teams[4], visiting_team:teams[6]
 end
 
 Then(/^the top (\d+) teams are marked for promotion$/) do |number_of_teams|
@@ -107,5 +111,17 @@ Then(/^the bottom (\d+) teams are marked for degradation$/) do |number_of_teams|
 	bottom_teams = TeamPage.all.reverse.take(3).collect {|t| t.name}
 	degradaded_teams = TeamPage.all( nil, ".degradation").reverse.collect {|t| t.name}
 	expect(degradaded_teams).to eq bottom_teams
+end
+
+When(/^I add a team without a competition$/) do
+	visit new_team_path
+	team = TeamPage.find
+	team.name = "Ajax"
+	team.save
+end
+
+Then(/^I should see error "(.*?)" on field "(.*?)"$/) do |message, field|
+	team = TeamPage.find
+	expect(team.errors[field]).to eq [message]
 end
 
