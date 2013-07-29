@@ -37,9 +37,8 @@ group :development, :test do
 	gem 'selenium-webdriver'
 end
 
-gem 'simple_form'
 gem 'formtastic', '~> 2.3.0.rc2'
-gem 'page_record', :path => '..'
+gem 'page_record'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
